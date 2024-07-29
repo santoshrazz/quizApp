@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
@@ -56,13 +57,13 @@ const HeroSection = () => {
               Try playing a Quiz with us and challange yourself
             </p>
             <div className="mt-5 flex items-center justify-center gap-x-6">
-              <a
-                href="/register"
+              <Link
+                href="/quizs"
                 className="rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
                 rel="noreferrer"
               >
                 Try Now →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

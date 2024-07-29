@@ -1,10 +1,12 @@
 "use client";
+// @ts-nocheck
 import React, { useState, useEffect, useRef, MouseEvent } from "react";
 import coin from "../../../../public/coin.png";
 import { ArrayofQuizes } from "@/Constants/Constant";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-const page = ({ params }: { params: { quizid: number } }) => {
+import Image from "next/image";
+const Page = ({ params }: { params: { quizid: number } }) => {
   const question = ArrayofQuizes.filter(
     (singleQue) => singleQue.quizId === Number(params.quizid)
   );
@@ -67,7 +69,9 @@ const page = ({ params }: { params: { quizid: number } }) => {
   const checkAnswer = (e: MouseEvent<HTMLParagraphElement>, ans: number) => {
     if (!lock) {
       if (currentQuestion.correct === ans) {
+        // @ts-ignore
         e.target.classList.add("bg-green-500/80");
+        // @ts-ignore
         e.target.classList.add("text-white");
         setLock(true);
         clearInterval(timer);
@@ -78,11 +82,14 @@ const page = ({ params }: { params: { quizid: number } }) => {
           coin: prevResult.coin + 10,
           question: [
             ...prevResult.question,
+            // @ts-ignore
             { que: currentQuestion, ans: e.target.innerText.slice(0, 1) },
           ],
         }));
       } else {
+        // @ts-ignore
         e.target.classList.add("bg-red-500/80");
+        // @ts-ignore
         e.target.classList.add("text-white");
         setLock(true);
         clearInterval(timer);
@@ -92,6 +99,7 @@ const page = ({ params }: { params: { quizid: number } }) => {
           Time: prevResult.Time + (60 - seconds),
           question: [
             ...prevResult.question,
+            // @ts-ignore
             { que: currentQuestion, ans: e.target.innerText.slice(0, 1) },
           ],
         }));
@@ -129,7 +137,7 @@ const page = ({ params }: { params: { quizid: number } }) => {
       <div className="quizNav flex justify-end items-end p-2 ">
         {/* <p className="text-white font-bold text-2xl">Quiz Name will be here</p> */}
         <p className="flex bg-white p-2 cursor-pointer rounded-lg gap-1">
-          <img src={coin.src} className="w-5" alt="" />
+          <Image src={coin.src} height={20} width={20} alt="Coin Image"></Image>
           <span className="font-semibold">{result.coin}</span>
         </p>
       </div>
@@ -193,7 +201,7 @@ const page = ({ params }: { params: { quizid: number } }) => {
             </div>
           )}
           {showResultButton && (
-            <div className="button w-full flex justify-center items-center m-auto">
+            <div className="button w-full my-4 flex justify-center items-center m-auto">
               <button
                 onClick={NavigateToResultPage}
                 className="next bg-teal-500 text-white px-4 py-2 rounded-md"
@@ -208,4 +216,4 @@ const page = ({ params }: { params: { quizid: number } }) => {
   );
 };
 
-export default page;
+export default Page;

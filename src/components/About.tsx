@@ -10,7 +10,7 @@ const About = () => {
           Start playing quizes in different categories
         </p>
       </div>
-      <div className="cards grid w-full  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center xl:grid-cols-4 gap-5">
+      <div className="cards flex justify-center items-center flex-wrap w-full">
         {quizCategoryArray.map((ele, ind) => {
           return (
             <div className="some m-4" key={ind}>
@@ -46,12 +46,12 @@ const About = () => {
                   </div>
                   <div className="pt-5 text-base font-semibold leading-7">
                     <p>
-                      <a
-                        href="#"
+                      <Link
+                        href="/quizs"
                         className="text-sky-500 transition-all duration-300 group-hover:text-white"
                       >
                         <button>Start Now</button> &rarr;
-                      </a>
+                      </Link>
                     </p>
                   </div>
                 </div>

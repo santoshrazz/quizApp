@@ -1,16 +1,27 @@
 "use client";
-import React from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { ParsedData } from "@/types/types";
 
-const page = () => {
-  const Rawdata = localStorage.getItem("result");
-  const parSedData = JSON.parse(Rawdata);
+const Page = () => {
+  const [parSedData, setparSedData] = useState<ParsedData | null>(null);
   console.log(parSedData);
+
+  useEffect(() => {
+    const Rawdata = localStorage.getItem("result");
+    if (Rawdata) {
+      setparSedData(JSON.parse(Rawdata));
+    }
+  }, []);
+  if (!parSedData) {
+    return <h1>Loading...</h1>;
+  }
   return (
-    <div className="h-screen bg-[#8e8cec] flex items-center justify-center flex-col">
+    <div className="min-h-screen bg-[#8e8cec] flex items-center justify-center flex-col">
       <div className="resultDiv">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:py-24 lg:px-8">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-            Here's Your Result
+            Your Result
           </h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-4 mt-4">
             <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
@@ -20,7 +31,7 @@ const page = () => {
                     Total Questions
                   </dt>
                   <dd className="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400">
-                    {parSedData?.question.length}
+                    {parSedData?.question?.length}
                   </dd>
                 </dl>
               </div>
@@ -89,12 +100,14 @@ const page = () => {
         </div>
       </div>
       <div className="button">
-        <button className="bg-white px-4 py-2 rounded-md ">
-          Review Questions
-        </button>
+        <Link href={"/review"}>
+          <button className="bg-white px-4 py-2 rounded-md ">
+            Review Questions
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

@@ -1,10 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import coinImage from "../../../public/coin.png";
-const page = () => {
-  const resultString = localStorage.getItem("result");
-  const result = JSON.parse(resultString);
+import { ParsedData } from "@/types/types";
+const Page = () => {
+  const [result, setResult] = useState<ParsedData | null>(null);
+  // @ts-ignore
+  // const result: any = JSON.parse(resultString);
   console.log(result);
+  useEffect(() => {
+    const resultString = localStorage.getItem("result");
+    if (resultString) {
+      setResult(JSON.parse(resultString));
+    }
+  }, []);
 
   return (
     <div className=" bg-gradient-to-tl from-lime-200 via-sky-500 to-violet-500 ">
@@ -21,7 +29,7 @@ const page = () => {
       <div className="mainDiv flex justify-center items-center w-full h-full">
         <div className="question bg-white p-4 my-3 rounded-md">
           {/* Question Ui Start */}
-          {result?.question.map((ele, ind) => {
+          {result?.question.map((ele: any, ind: number) => {
             return (
               <div key={ind} className="my-3">
                 <h3 className="font-bold text-2xl">
@@ -41,10 +49,9 @@ const page = () => {
                 </p>
                 <div className="showAnswer flex justify-around">
                   <p>
-                    <img src="" alt="" /> <span>Your Answer : {ele?.ans} </span>
+                    <span>Your Answer : {ele?.ans} </span>
                   </p>
                   <p>
-                    <img src="" alt="" />{" "}
                     <span>Correct Answer : {ele?.que?.correct} </span>
                   </p>
                 </div>
@@ -57,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
