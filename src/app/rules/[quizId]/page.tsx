@@ -36,7 +36,7 @@ const page = ({ params }: { params: { quizId: number } }) => {
         </p>
         <div className="buttons flex flex-col">
           <Link
-            href={`/quizs/${params.quizId}`}
+            href={`/counter/${params.quizId}`}
             className="bg-white px-5 text-3xl rounded-md my-2 m-auto"
           >
             <button className="Play ">Play</button>

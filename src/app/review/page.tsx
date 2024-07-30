@@ -21,7 +21,7 @@ const Page = () => {
         {/* <p className="text-white font-bold text-2xl">Quiz Name will be here</p> */}
         <p className="flex bg-white p-2 cursor-pointer rounded-lg gap-1">
           <img src={coinImage.src} className="w-5" alt="" />
-          <span className="font-semibold">{6}</span>
+          <span className="font-semibold">{result?.coin}</span>
         </p>
       </div>
       {/* Coin Ui  End*/}

@@ -29,7 +29,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   );
 
   const router = useRouter();
-  // UseEffect for CountDown Timer
+  //---------> UseEffect for CountDown Timer  <----------------
   let timer: any;
   useEffect(() => {
     if (seconds > 0) {
@@ -42,7 +42,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     }
   }, [seconds]);
 
-  // UseEffect to skip the question
+  //---------> UseEffect to skip question  <----------------
   useEffect(() => {
     setIsInitialRender(false);
   }, []);
@@ -59,7 +59,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     }
   }, [skipQuestion]);
 
-  // HighLight Correct Answer
+  //---------> Highlight correct Answer  <----------------
   const option1 = useRef<HTMLParagraphElement>(null);
   const option2 = useRef<HTMLParagraphElement>(null);
   const option3 = useRef<HTMLParagraphElement>(null);
@@ -113,7 +113,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     localStorage.setItem("result", JSON.stringify(result));
     router.push("/result");
   };
-  // Handle Next Question
+  //---------> Handle Next Question  <----------------
   const handleNextQue = () => {
     if (index >= question[0].question.length - 1) {
       console.log(result);
