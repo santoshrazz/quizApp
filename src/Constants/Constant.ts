@@ -178,7 +178,7 @@ export const ArrayofQuizes = [
     quizName: "Path to Self-Improvement",
     quizDesc:
       "Assess your understanding of key concepts in personality development and self-improvement.",
-    quizId: 4,
+    quizId: 6,
     category: "Personality Development",
     question: [
       {
@@ -227,7 +227,7 @@ export const ArrayofQuizes = [
     quizName: "Tech Trivia",
     quizDesc:
       "Test your knowledge on the latest in technology and innovations.",
-    quizId: 1,
+    quizId: 7,
     category: "Tech",
     question: [
       {
@@ -277,7 +277,7 @@ export const ArrayofQuizes = [
     quizName: "Science Facts",
     quizDesc:
       "Evaluate your understanding of fundamental scientific concepts and discoveries.",
-    quizId: 2,
+    quizId: 8,
     category: "Science",
     question: [
       {
@@ -326,7 +326,7 @@ export const ArrayofQuizes = [
     quizName: "Computer Basics",
     quizDesc:
       "Assess your basic understanding of computer science and technology.",
-    quizId: 3,
+    quizId: 9,
     category: "Computer",
     question: [
       {
@@ -375,7 +375,7 @@ export const ArrayofQuizes = [
     quizName: "Path to Self-Improvement",
     quizDesc:
       "Assess your understanding of key concepts in personality development and self-improvement.",
-    quizId: 4,
+    quizId: 10,
     category: "Personality Development",
     question: [
       {
@@ -424,7 +424,7 @@ export const ArrayofQuizes = [
     quizName: "Path to Self-Improvement",
     quizDesc:
       "Assess your understanding of key concepts in personality development and self-improvement.",
-    quizId: 4,
+    quizId: 11,
     category: "Personality Development",
     question: [
       {
@@ -473,7 +473,7 @@ export const ArrayofQuizes = [
     quizName: "Tech Innovations",
     quizDesc:
       "Challenge your knowledge on recent technological advancements and trends.",
-    quizId: 5,
+    quizId: 12,
     category: "Tech",
     question: [
       {
@@ -524,7 +524,7 @@ export const ArrayofQuizes = [
     quizName: "Scientific Discoveries",
     quizDesc:
       "Explore your understanding of significant scientific breakthroughs and phenomena.",
-    quizId: 6,
+    quizId: 13,
     category: "Science",
     question: [
       {
@@ -573,7 +573,7 @@ export const ArrayofQuizes = [
     quizName: "Advanced Computing",
     quizDesc:
       "Test your in-depth knowledge of computer science and advanced technologies.",
-    quizId: 7,
+    quizId: 14,
     category: "Computer",
     question: [
       {
@@ -623,7 +623,7 @@ export const ArrayofQuizes = [
     quizName: "Self-Growth Insights",
     quizDesc:
       "Gauge your knowledge on various aspects of personality development and self-growth.",
-    quizId: 8,
+    quizId: 15,
     category: "Personality Development",
     question: [
       {
