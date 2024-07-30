@@ -669,3 +669,76 @@ export const ArrayofQuizes = [
     ],
   },
 ];
+
+export const leaderBoardData = [
+  {
+    name: "Santosh Kumar",
+    coin: 87,
+    rank: 12,
+  },
+  {
+    name: "Harsh Raj",
+    coin: 78,
+    rank: 13,
+  },
+  {
+    name: "Prabhu Kumar",
+    coin: 57,
+    rank: 23,
+  },
+  {
+    name: "Yeshvant Kumar",
+    coin: 76,
+    rank: 33,
+  },
+  {
+    name: "Raju Kumar",
+    coin: 23,
+    rank: 4,
+  },
+  {
+    name: "Krishna Kumar",
+    coin: 34,
+    rank: 22,
+  },
+  {
+    name: "Yusuf Mirza",
+    coin: 43,
+    rank: 11,
+  },
+  {
+    name: "Mohit Kumar",
+    coin: 45,
+    rank: 89,
+  },
+  {
+    name: "Tansh Kumar",
+    coin: 34,
+    rank: 29,
+  },
+  {
+    name: "Rahul Kumar",
+    coin: 23,
+    rank: 45,
+  },
+  {
+    name: "Harshit Kumar",
+    coin: 24,
+    rank: 46,
+  },
+  {
+    name: "Yoshita Jain",
+    coin: 24,
+    rank: 47,
+  },
+  {
+    name: "Tahsin Jain",
+    coin: 24,
+    rank: 48,
+  },
+  {
+    name: "Xavier Travis",
+    coin: 24,
+    rank: 51,
+  },
+];

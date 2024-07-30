@@ -9,7 +9,7 @@ const page = ({ params }: { params: { quizId: number } }) => {
     (ele) => ele.quizId === Number(params.quizId)
   );
   return (
-    <div className="bg-slate-800 flex justify-center items-center">
+    <div className="bg-slate-800 min-h-screen flex justify-center items-center">
       <div className="content">
         <Image
           src={LighBulb.src}
@@ -26,7 +26,9 @@ const page = ({ params }: { params: { quizId: number } }) => {
         </p>
         <p className="text-center text-2xl m-2 text-white">
           Difficulty Level :
-          <span className="bg-white text-sky-500 px-2 rounded-lg">Easy</span>
+          <span className="bg-white text-sky-500 px-2 mx-4 rounded-lg">
+            Easy
+          </span>
         </p>
         <p className="flex justify-center items-center">
           <img src={Question_Mark.src} alt="what image" className="h-10 mx-4" />
@@ -37,7 +39,7 @@ const page = ({ params }: { params: { quizId: number } }) => {
         <div className="buttons flex flex-col">
           <Link
             href={`/counter/${params.quizId}`}
-            className="bg-white px-5 text-3xl rounded-md my-2 m-auto"
+            className="bg-white px-7 text-3xl hover:bg-emerald-500 hover:text-white rounded-md my-2 m-auto ease-in duration-100 "
           >
             <button className="Play ">Play</button>
           </Link>
