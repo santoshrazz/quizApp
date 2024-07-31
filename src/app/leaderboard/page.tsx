@@ -7,13 +7,15 @@ import One from "../../../public/one.png";
 import Crown from "../../../public/Crown2.png";
 import coin from "../../../public/coin.png";
 import { leaderBoardData } from "@/Constants/Constant";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const Page = () => {
+  // Pagination Logic
   const [index, setIndex] = useState(5);
   const initArray = new Array(leaderBoardData.length);
   for (let i = 0; i < index; i++) {
     initArray.push(leaderBoardData[i]);
   }
-  console.log(initArray);
   const handleOnclick = () => {
     const target = index + 5;
     if (target >= leaderBoardData.length) {
@@ -22,6 +24,28 @@ const Page = () => {
       setIndex(index + 5);
     }
   };
+
+  // GSAP Animation
+  useGSAP(() => {
+    const timeline = gsap.timeline();
+    timeline.from(".firstDiv", {
+      x: -500,
+      duration: 1,
+      opacity: 0,
+      display: "none",
+    });
+    timeline.from(".secondDiv", {
+      y: -800,
+      duration: 1,
+      display: "none",
+    });
+    timeline.from(".thirdDiv", {
+      x: 700,
+      duration: 1,
+      opacity: 0,
+      display: "none",
+    });
+  }, []);
   return (
     <div className="min-h-screen bg-[#1c373f] flex justify-center items-center flex-col">
       <div className=" w-full md:w-[57%] ">
@@ -34,7 +58,7 @@ const Page = () => {
         <div className="flex flex-col justify-center  items-center mt-[6rem] sm:mt-[6rem] mb-[1rem]">
           <div className="w-full py-[5px]">
             <div className="flex w-full justify-center items-end text-white">
-              <div className=" bg-[#2E4950] w-[28%] h-fit py-[.7rem] sm:py-[.5rem] rounded-tl-xl rounded-bl-xl">
+              <div className="firstDiv bg-[#2E4950] w-[28%] h-fit py-[.7rem] sm:py-[.5rem] rounded-tl-xl rounded-bl-xl">
                 <div className="relative  flex justify-center items-center flex-col animate__animated animate__backInLeft animate__delay-1s">
                   <img
                     src={Second.src}
@@ -54,7 +78,7 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className=" bg-[#2E4950]  w-[28%] h-fit py-[3rem] pt-[2rem] rounded-t-xl">
+              <div className="secondDiv bg-[#2E4950]  w-[28%] h-fit py-[3rem] pt-[2rem] rounded-t-xl">
                 <div className="relative flex justify-end items-center flex-col animate__animated animate__backInDown animate__delay-2s">
                   <img
                     src={One.src}
@@ -79,7 +103,7 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#2E4950] w-[28%] h-fit rounded-tr-xl rounded-br-xl">
+              <div className="thirdDiv bg-[#2E4950] w-[28%] h-fit rounded-tr-xl rounded-br-xl">
                 <div className="relative  flex justify-center items-center flex-col animate__animated animate__backInRight ">
                   <img
                     src={Three.src}
@@ -126,8 +150,14 @@ const Page = () => {
             </div>
           );
         })}
-        <div className="button bg-slate-100 w-1/4 m-auto flex justify-center items-center">
-          <button onClick={handleOnclick}>Load More...</button>
+        <div className="button w-1/4 m-auto flex justify-center items-center">
+          <button
+            type="button"
+            onClick={handleOnclick}
+            className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Load More...
+          </button>
         </div>
       </div>
     </div>

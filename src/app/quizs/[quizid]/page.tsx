@@ -6,6 +6,7 @@ import { ArrayofQuizes } from "@/Constants/Constant";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+
 const Page = ({ params }: { params: { quizid: number } }) => {
   const question = ArrayofQuizes.filter(
     (singleQue) => singleQue.quizId === Number(params.quizid)
@@ -29,7 +30,13 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   );
 
   const router = useRouter();
-  //---------> UseEffect for CountDown Timer  <----------------
+
+  // Sendcoin Funtion
+  const coinRef1 = useRef(null);
+  const coinRef2 = useRef(null);
+  const coinRef3 = useRef(null);
+  const coinRef4 = useRef(null);
+  // UseEffect for CountDown Timer
   let timer: any;
   useEffect(() => {
     if (seconds > 0) {
@@ -42,7 +49,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     }
   }, [seconds]);
 
-  //---------> UseEffect to skip question  <----------------
+  // UseEffect to skip question
   useEffect(() => {
     setIsInitialRender(false);
   }, []);
@@ -59,7 +66,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     }
   }, [skipQuestion]);
 
-  //---------> Highlight correct Answer  <----------------
+  // Highlight correct Answer
   const option1 = useRef<HTMLParagraphElement>(null);
   const option2 = useRef<HTMLParagraphElement>(null);
   const option3 = useRef<HTMLParagraphElement>(null);
@@ -69,6 +76,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   const checkAnswer = (e: MouseEvent<HTMLParagraphElement>, ans: number) => {
     if (!lock) {
       if (currentQuestion.correct === ans) {
+        // Correct answer
         // @ts-ignore
         e.target.classList.add("bg-green-500/80");
         // @ts-ignore
@@ -87,7 +95,9 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           ],
         }));
       } else {
+        // Incorrect answer
         // @ts-ignore
+
         e.target.classList.add("bg-red-500/80");
         // @ts-ignore
         e.target.classList.add("text-white");
@@ -100,6 +110,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           question: [
             ...prevResult.question,
             // @ts-ignore
+
             { que: currentQuestion, ans: e.target.innerText.slice(0, 1) },
           ],
         }));
@@ -109,11 +120,13 @@ const Page = ({ params }: { params: { quizid: number } }) => {
       }
     }
   };
+
   const NavigateToResultPage = () => {
     localStorage.setItem("result", JSON.stringify(result));
     router.push("/result");
   };
-  //---------> Handle Next Question  <----------------
+
+  // Handle Next Question
   const handleNextQue = () => {
     if (index >= question[0].question.length - 1) {
       console.log(result);
@@ -132,16 +145,16 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-tl from-lime-200 via-sky-500 to-violet-500 ">
+    <div className="h-screen bg-gradient-to-tl from-lime-200 via-sky-500 to-violet-500">
       {/* Coin Ui Start */}
-      <div className="quizNav flex justify-end items-end p-2 ">
+      <div className="quizNav flex justify-end items-end p-2">
         {/* <p className="text-white font-bold text-2xl">Quiz Name will be here</p> */}
         <p className="flex bg-white p-2 cursor-pointer rounded-lg gap-1">
           <Image src={coin.src} height={20} width={20} alt="Coin Image"></Image>
           <span className="font-semibold">{result.coin}</span>
         </p>
       </div>
-      {/* Coin Ui  End*/}
+      {/* Coin Ui  End */}
 
       <div className="mainDiv flex justify-center items-center w-full h-full">
         <div className="question bg-white p-4 rounded-md">
@@ -159,7 +172,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             Q{index + 1}. {currentQuestion.Question}
           </h3>
           <p
-            className="border-2 hover:border-black m-2 p-2 cursor-pointer"
+            className="border-2 hover:border-black flex m-2 p-2 cursor-pointer"
             onClick={(e) => checkAnswer(e, 1)}
             ref={option1}
           >
@@ -184,8 +197,9 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           </p>
           <p
             className="border-2 hover:border-black m-2 p-2 cursor-pointer"
-            onClick={(e) => checkAnswer(e, 4)}
-            ref={option4}
+            onClick={(e) => {
+              checkAnswer(e, 4);
+            }}
           >
             4.
             {currentQuestion.D}
