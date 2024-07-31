@@ -13,13 +13,16 @@ import { useGSAP } from "@gsap/react";
 const Page = () => {
   // Confettie Logic
   const [onConfettie, setOnConfettie] = useState(true);
-  const [windowWidth, setWindowWidth] = useState({
-    widht: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [innerWidth, setInnerWidth] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(0);
   const detectSize = () => {
-    setWindowWidth({ widht: window.innerWidth, height: window.innerHeight });
+    setInnerHeight(window.innerHeight);
+    setInnerWidth(window.innerWidth);
   };
+  useEffect(() => {
+    setInnerHeight(window.innerHeight);
+    setInnerWidth(window.innerWidth);
+  }, []);
   useEffect(() => {
     window.addEventListener("resize", detectSize);
     return () => {
@@ -70,7 +73,7 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-[#1c373f] flex justify-center items-center flex-col">
       {onConfettie && (
-        <Confettie width={windowWidth.widht - 20} height={windowWidth.height} />
+        <Confettie width={innerWidth - 20} height={innerHeight} />
       )}
       <div className=" w-full md:w-[57%] ">
         <div className="w-full flex gap-3 rounded-md ">

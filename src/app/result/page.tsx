@@ -13,13 +13,16 @@ import coinImage from "../../../public/coin.png";
 const Page = () => {
   // React confettie logic
   const [onConfettie, setOnConfettie] = useState(true);
-  const [windowWidth, setWindowWidth] = useState({
-    widht: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [innerWidth, setInnerWidth] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(0);
   const detectSize = () => {
-    setWindowWidth({ widht: window.innerWidth, height: window.innerHeight });
+    setInnerHeight(window.innerHeight);
+    setInnerWidth(window.innerWidth);
   };
+  useEffect(() => {
+    setInnerHeight(window.innerHeight);
+    setInnerWidth(window.innerWidth);
+  }, []);
   useEffect(() => {
     window.addEventListener("resize", detectSize);
     return () => {
@@ -45,7 +48,7 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-[#8e8cec] flex items-center justify-center flex-col">
       {onConfettie && (
-        <Confettie width={windowWidth.widht - 20} height={windowWidth.height} />
+        <Confettie width={innerWidth - 20} height={innerHeight} />
       )}
       <div className="resultDiv">
         <div className="mx-auto px-4 sm:px-6 lg:py-24 lg:px-8">
