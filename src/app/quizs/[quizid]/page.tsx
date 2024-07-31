@@ -134,7 +134,6 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   // Handle Next Question
   const handleNextQue = () => {
     if (index >= question[0].question.length - 1) {
-      console.log(result);
       setShowResultButton(true);
       return;
     }
@@ -213,6 +212,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             onClick={(e) => {
               checkAnswer(e, 4);
             }}
+            ref={option4}
           >
             4.
             {currentQuestion.D}
