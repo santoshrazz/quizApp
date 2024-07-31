@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import UserImage from "../../../public/User.png";
 import Second from "../../../public/Two.png";
 import Three from "../../../public/Three.png";
-import One from "../../../public/one.png";
+import One from "../../../public/One.png";
 import Crown from "../../../public/Crown2.png";
 import coin from "../../../public/coin.png";
 import Confettie from "react-confetti";
