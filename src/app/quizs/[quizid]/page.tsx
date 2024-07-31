@@ -2,10 +2,12 @@
 // @ts-nocheck
 import React, { useState, useEffect, useRef, MouseEvent } from "react";
 import coin from "../../../../public/coin.png";
+import coin3 from "../../../../public/Coin3.png";
 import { ArrayofQuizes } from "@/Constants/Constant";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import gsap from "gsap";
 
 const Page = ({ params }: { params: { quizid: number } }) => {
   const question = ArrayofQuizes.filter(
@@ -31,11 +33,6 @@ const Page = ({ params }: { params: { quizid: number } }) => {
 
   const router = useRouter();
 
-  // Sendcoin Funtion
-  const coinRef1 = useRef(null);
-  const coinRef2 = useRef(null);
-  const coinRef3 = useRef(null);
-  const coinRef4 = useRef(null);
   // UseEffect for CountDown Timer
   let timer: any;
   useEffect(() => {
@@ -73,9 +70,17 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   const option4 = useRef<HTMLParagraphElement>(null);
   const optionsArray = [option1, option2, option3, option4];
 
+  const coinRef = useRef(null);
   const checkAnswer = (e: MouseEvent<HTMLParagraphElement>, ans: number) => {
     if (!lock) {
       if (currentQuestion.correct === ans) {
+        // GSap animation for coin
+        gsap.from(coinRef.current, {
+          x: -(e.clientX - 50),
+          y: e.clientY - 100,
+          duration: 1,
+          display: "block",
+        });
         // Correct answer
         // @ts-ignore
         e.target.classList.add("bg-green-500/80");
@@ -149,8 +154,16 @@ const Page = ({ params }: { params: { quizid: number } }) => {
       {/* Coin Ui Start */}
       <div className="quizNav flex justify-end items-end p-2">
         {/* <p className="text-white font-bold text-2xl">Quiz Name will be here</p> */}
-        <p className="flex bg-white p-2 cursor-pointer rounded-lg gap-1">
+        <p className="flex bg-white p-2 cursor-pointer rounded-lg gap-1 relative">
           <Image src={coin.src} height={20} width={20} alt="Coin Image"></Image>
+          <Image
+            src={coin3.src}
+            height={80}
+            width={80}
+            alt="Coin Image"
+            className=" hidden absolute top-0 left-0"
+            ref={coinRef}
+          ></Image>
           <span className="font-semibold">{result.coin}</span>
         </p>
       </div>
