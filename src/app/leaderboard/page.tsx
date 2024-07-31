@@ -1,15 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserImage from "../../../public/User.png";
 import Second from "../../../public/Two.png";
 import Three from "../../../public/Three.png";
 import One from "../../../public/one.png";
 import Crown from "../../../public/Crown2.png";
 import coin from "../../../public/coin.png";
+import Confettie from "react-confetti";
 import { leaderBoardData } from "@/Constants/Constant";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 const Page = () => {
+  // Confettie Logic
+  const [onConfettie, setOnConfettie] = useState(true);
+  const [windowWidth, setWindowWidth] = useState({
+    widht: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const detectSize = () => {
+    setWindowWidth({ widht: window.innerWidth, height: window.innerHeight });
+  };
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setOnConfettie(false);
+    }, 5000);
+  }, []);
   // Pagination Logic
   const [index, setIndex] = useState(5);
   const initArray = new Array(leaderBoardData.length);
@@ -48,6 +69,9 @@ const Page = () => {
   }, []);
   return (
     <div className="min-h-screen bg-[#1c373f] flex justify-center items-center flex-col">
+      {onConfettie && (
+        <Confettie width={windowWidth.widht - 20} height={windowWidth.height} />
+      )}
       <div className=" w-full md:w-[57%] ">
         <div className="w-full flex gap-3 rounded-md ">
           <div className="z-[100] flex items-center justify-start  pl-[18px] lg:pl-0 md:text-4xl cursor-pointer text-yellow400 "></div>
