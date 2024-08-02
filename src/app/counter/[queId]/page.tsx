@@ -17,7 +17,8 @@ const Page = ({ params }: { params: { queId: number } }) => {
     }
   }, [seconds]);
   return (
-    <div className="h-screen w-full justify-center items-center flex bg-slate-700">
+    <div className="h-screen w-full flex-col justify-center items-center flex bg-slate-700">
+      <p className="text-4xl md:text-8xl text-white">Starting in </p>
       <p className="text-white text-8xl animate-fadeIn">{seconds}</p>
     </div>
   );

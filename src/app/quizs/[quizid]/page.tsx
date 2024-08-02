@@ -96,7 +96,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           question: [
             ...prevResult.question,
             // @ts-ignore
-            { que: currentQuestion, ans: e.target.innerText.slice(0, 1) },
+            { que: currentQuestion, ans: ans },
           ],
         }));
       } else {
@@ -116,7 +116,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             ...prevResult.question,
             // @ts-ignore
 
-            { que: currentQuestion, ans: e.target.innerText.slice(0, 1) },
+            { que: currentQuestion, ans: ans },
           ],
         }));
         optionsArray[currentQuestion.correct - 1].current?.classList.add(
@@ -169,7 +169,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
       {/* Coin Ui  End */}
 
       <div className="mainDiv flex justify-center items-center w-full h-full">
-        <div className="question bg-white p-4 rounded-md">
+        <div className="question bg-white p-4 rounded-md w-4/5 h-3/4">
           {/* Counter Start */}
           <div className="text-center flex justify-between border-b-2 border-black">
             <p className="font-extrabold text-2xl">Quiz.</p>
@@ -180,43 +180,45 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           {/* Counter End */}
 
           {/* Question Ui Start */}
-          <h3 className="font-bold text-2xl">
-            Q{index + 1}. {currentQuestion.Question}
-          </h3>
-          <p
-            className="border-2 hover:border-black flex m-2 p-2 cursor-pointer"
-            onClick={(e) => checkAnswer(e, 1)}
-            ref={option1}
-          >
-            1.
-            {currentQuestion.A}
-          </p>
-          <p
-            className="border-2 hover:border-black m-2 p-2 cursor-pointer"
-            onClick={(e) => checkAnswer(e, 2)}
-            ref={option2}
-          >
-            2.
-            {currentQuestion.B}
-          </p>
-          <p
-            className="border-2 hover:border-black m-2 p-2 cursor-pointer"
-            onClick={(e) => checkAnswer(e, 3)}
-            ref={option3}
-          >
-            3.
-            {currentQuestion.C}
-          </p>
-          <p
-            className="border-2 hover:border-black m-2 p-2 cursor-pointer"
-            onClick={(e) => {
-              checkAnswer(e, 4);
-            }}
-            ref={option4}
-          >
-            4.
-            {currentQuestion.D}
-          </p>
+          <div className="question">
+            <h3 className="font-bold text-2xl">
+              Q{index + 1}. {currentQuestion.Question}
+            </h3>
+            <p
+              className="border-2 hover:border-black flex m-2 p-2 cursor-pointer"
+              onClick={(e) => checkAnswer(e, 1)}
+              ref={option1}
+            >
+              1.
+              {currentQuestion.A}
+            </p>
+            <p
+              className="border-2 hover:border-black m-2 p-2 cursor-pointer"
+              onClick={(e) => checkAnswer(e, 2)}
+              ref={option2}
+            >
+              2.
+              {currentQuestion.B}
+            </p>
+            <p
+              className="border-2 hover:border-black m-2 p-2 cursor-pointer"
+              onClick={(e) => checkAnswer(e, 3)}
+              ref={option3}
+            >
+              3.
+              {currentQuestion.C}
+            </p>
+            <p
+              className="border-2 hover:border-black m-2 p-2 cursor-pointer"
+              onClick={(e) => {
+                checkAnswer(e, 4);
+              }}
+              ref={option4}
+            >
+              4.
+              {currentQuestion.D}
+            </p>
+          </div>
           {lock && (
             <div className="button w-full flex justify-center items-center m-auto">
               <button

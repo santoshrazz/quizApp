@@ -46,7 +46,7 @@ const Page = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <div className="min-h-screen bg-[#8e8cec] flex items-center justify-center flex-col">
+    <div className="min-h-screen bg-[#8e8cec] flex items-center justify-center gap-5 flex-col">
       {onConfettie && (
         <Confettie width={innerWidth - 20} height={innerHeight} />
       )}
@@ -55,8 +55,8 @@ const Page = () => {
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
             Your Result
           </h2>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-4 mt-4">
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+          <div className="flex justify-around items-center flex-wrap gap-3 mt-4">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -75,7 +75,7 @@ const Page = () => {
                 </dl>
               </div>
             </div>
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -94,7 +94,7 @@ const Page = () => {
                 </dl>
               </div>
             </div>
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -113,7 +113,7 @@ const Page = () => {
                 </dl>
               </div>
             </div>
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -132,7 +132,7 @@ const Page = () => {
                 </dl>
               </div>
             </div>
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -151,7 +151,7 @@ const Page = () => {
                 </dl>
               </div>
             </div>
-            <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+            <div className="transform w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
               <div className="px-4 py-5 sm:p-6">
                 <dl>
                   <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">

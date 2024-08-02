@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="bg-slate-900">
       <div className="heading flex justify-center items-center bg-slate-900 flex-col">
-        <p className="text-white text-5xl">Start Quizes</p>{" "}
+        <p className="text-white md:text-5xl text-2xl">Start Quizes</p>{" "}
         <p className="text-white">
           Start playing quizes in different categories
         </p>

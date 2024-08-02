@@ -25,7 +25,7 @@ const Page = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="mainquiz w-full bg-slate-900">
+    <div className="mainquiz w-full bg-slate-900 h-screen">
       <div className="heading flex justify-around m-auto w-11/12 p-2 bg-white border-red-500 border-solid rounded-sm">
         <p className="text-center text-2xl hidden md:block">All Quizes</p>
         <select

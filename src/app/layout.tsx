@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 export const metadata: Metadata = {
   title: "Brainlyized",
@@ -17,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={""}>
-        <Navbar />
-        <Toaster />
-        {children}
+        <Suspense fallback={<Loading />}>
+          <Toaster />
+          {children}
+        </Suspense>
+        {/* <Navbar /> */}
       </body>
     </html>
   );
