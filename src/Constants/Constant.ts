@@ -1,27 +1,38 @@
-export const quizCategoryArray = [
+export const projects = [
   {
     title: "Science",
-    desc: "",
+    description:
+      "since is a conjunction and preposition used to indicate the starting point of a period of time or reason for something",
     link: "/quizs",
   },
   {
     title: "Computer",
-    desc: "",
+    description:
+      "Computers are versatile machines capable of performing complex calculations and tasks, essential for various fields like science, engineering, and everyday life",
     link: "/quizs",
   },
   {
-    title: "Generics",
-    desc: "",
+    title: "Tech",
+    description:
+      "Tech, short for technology, refers to the application of scientific knowledge for practical purposes, driving innovation in fields such as information technology",
     link: "/quizs",
   },
   {
     title: "Economics",
-    desc: "",
+    description:
+      "Economics is the study of how societies allocate scarce resources to produce goods and services, focusing on the behavior and interactions of economic agents",
     link: "/quizs",
   },
   {
     title: "Sports",
-    desc: "",
+    description:
+      "Personality development involves enhancing one's character, behavior, and attitudes through self-improvement and learning.",
+    link: "/quizs",
+  },
+  {
+    title: "Personality development",
+    description:
+      "Personality development involves enhancing one's character, behavior, and attitudes through self-improvement and learning.",
     link: "/quizs",
   },
 ];
@@ -29,7 +40,7 @@ export const quizCategoryArray = [
 export const ArrayofQuizes = [
   {
     quizName: "The Art of Computer",
-    quizDesc:
+    quizdescription:
       "Explore the fundamental aspects of computer science and its applications.",
     quizId: 1,
     category: "computer",
@@ -78,7 +89,7 @@ export const ArrayofQuizes = [
   },
   {
     quizName: "Discovering Science",
-    quizDesc:
+    quizdescription:
       "Dive into the world of science and explore its various branches and phenomena.",
     quizId: 2,
     category: "Science",
@@ -127,7 +138,7 @@ export const ArrayofQuizes = [
   },
   {
     quizName: "Tech Innovations",
-    quizDesc:
+    quizdescription:
       "Test your knowledge on the latest and greatest in technology and innovations.",
     quizId: 3,
     category: "Tech",

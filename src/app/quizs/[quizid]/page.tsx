@@ -33,6 +33,9 @@ const Page = ({ params }: { params: { quizid: number } }) => {
 
   const router = useRouter();
 
+  // Next Button Ref to disable next button at the end of quiz
+  const NextButtonRef = useRef(null);
+
   // UseEffect for CountDown Timer
   let timer: any;
   useEffect(() => {
@@ -81,19 +84,19 @@ const Page = ({ params }: { params: { quizid: number } }) => {
         timeline.from(coinRef.current, {
           x: -e.clientX - 50,
           y: e.clientY - 30,
-          duration: 0.2,
+          duration: 0.3,
           display: "block",
         });
         timeline.from(coinRef2.current, {
           x: -e.clientX - 50,
           y: e.clientY - 30,
-          duration: 0.2,
+          duration: 0.3,
           display: "block",
         });
         timeline.from(coinRef3.current, {
           x: -e.clientX - 50,
           y: e.clientY - 30,
-          duration: 0.2,
+          duration: 0.3,
           display: "block",
         });
         // Correct answer
@@ -150,7 +153,8 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   const handleNextQue = () => {
     if (index >= question[0].question.length - 1) {
       setShowResultButton(true);
-      setLock(false);
+      // @ts-ignore
+      NextButtonRef.current.classList.add("hidden");
       return;
     }
     setIndex((preInd) => preInd + 1);
@@ -176,7 +180,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             height={80}
             width={80}
             alt="Coin Image"
-            className=" hidden absolute top-0 left-0"
+            className=" hidden absolute top-0 left-0 w-6 md:w-16"
             ref={coinRef}
           ></Image>
           <Image
@@ -184,7 +188,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             height={80}
             width={80}
             alt="Coin Image"
-            className=" hidden absolute top-0 left-0"
+            className=" hidden absolute top-0 left-0 w-6 md:w-16"
             ref={coinRef2}
           ></Image>
           <Image
@@ -192,7 +196,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             height={80}
             width={80}
             alt="Coin Image"
-            className=" hidden absolute top-0 left-0"
+            className=" hidden absolute top-0 left-0 w-6 md:w-16"
             ref={coinRef3}
           ></Image>
           <span className="font-semibold">{result.coin}</span>
@@ -255,6 +259,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             <div className="button w-full flex justify-center items-center m-auto">
               <button
                 onClick={handleNextQue}
+                ref={NextButtonRef}
                 className="next bg-teal-500 text-white px-4 py-2 rounded-md"
               >
                 Next
@@ -267,7 +272,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
                 onClick={NavigateToResultPage}
                 className="next bg-teal-500 text-white px-4 py-2 rounded-md"
               >
-                Show Result
+                Submit Quiz
               </button>
             </div>
           )}

@@ -59,7 +59,7 @@ const Page = () => {
           </h2>
           <div className="flex justify-around items-center w-full flex-col gap-3 mt-4">
             <div className="resultdiv p-10 md:w-3/4 w-full rounded-md  gap-3 bg-[#010036] grid grid-cols-2 place-items-center">
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -78,7 +78,7 @@ const Page = () => {
                   </dl>
                 </div>
               </div>
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -97,7 +97,7 @@ const Page = () => {
                   </dl>
                 </div>
               </div>
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -116,7 +116,7 @@ const Page = () => {
                   </dl>
                 </div>
               </div>
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -135,7 +135,7 @@ const Page = () => {
                   </dl>
                 </div>
               </div>
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
@@ -154,7 +154,7 @@ const Page = () => {
                   </dl>
                 </div>
               </div>
-              <div className="transform w-32 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
+              <div className="transform w-28 md:w-52  rounded-xl bg-white shadow-xl transition duration-300 hover:rotate-180  overflow-hidden  sm:rounded-lg dark:bg-gray-900">
                 <div className="px-4 py-5 sm:p-6">
                   <dl>
                     <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">
