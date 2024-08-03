@@ -25,7 +25,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
     incorrect: 0,
     UnAttempted: 0,
     Time: 0,
-    question: [] as Array<{ que: any; ans: number }>,
+    question: [] as Array<{ que: any; ans: number; timePerQue: number }>,
   });
   const [currentQuestion, setCurrentQuestion] = useState(
     question[0].question[index]
@@ -71,14 +71,29 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   const optionsArray = [option1, option2, option3, option4];
 
   const coinRef = useRef(null);
+  const coinRef2 = useRef(null);
+  const coinRef3 = useRef(null);
   const checkAnswer = (e: MouseEvent<HTMLParagraphElement>, ans: number) => {
     if (!lock) {
       if (currentQuestion.correct === ans) {
         // GSap animation for coin
-        gsap.from(coinRef.current, {
-          x: -(e.clientX - 50),
-          y: e.clientY - 100,
-          duration: 1,
+        const timeline = gsap.timeline();
+        timeline.from(coinRef.current, {
+          x: -e.clientX - 50,
+          y: e.clientY - 30,
+          duration: 0.2,
+          display: "block",
+        });
+        timeline.from(coinRef2.current, {
+          x: -e.clientX - 50,
+          y: e.clientY - 30,
+          duration: 0.2,
+          display: "block",
+        });
+        timeline.from(coinRef3.current, {
+          x: -e.clientX - 50,
+          y: e.clientY - 30,
+          duration: 0.2,
           display: "block",
         });
         // Correct answer
@@ -96,7 +111,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
           question: [
             ...prevResult.question,
             // @ts-ignore
-            { que: currentQuestion, ans: ans },
+            { que: currentQuestion, ans: ans, timePerQue: 60 - seconds },
           ],
         }));
       } else {
@@ -116,7 +131,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             ...prevResult.question,
             // @ts-ignore
 
-            { que: currentQuestion, ans: ans },
+            { que: currentQuestion, ans: ans, timePerQue: 60 - seconds },
           ],
         }));
         optionsArray[currentQuestion.correct - 1].current?.classList.add(
@@ -135,6 +150,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
   const handleNextQue = () => {
     if (index >= question[0].question.length - 1) {
       setShowResultButton(true);
+      setLock(false);
       return;
     }
     setIndex((preInd) => preInd + 1);
@@ -163,12 +179,28 @@ const Page = ({ params }: { params: { quizid: number } }) => {
             className=" hidden absolute top-0 left-0"
             ref={coinRef}
           ></Image>
+          <Image
+            src={coin3.src}
+            height={80}
+            width={80}
+            alt="Coin Image"
+            className=" hidden absolute top-0 left-0"
+            ref={coinRef2}
+          ></Image>
+          <Image
+            src={coin3.src}
+            height={80}
+            width={80}
+            alt="Coin Image"
+            className=" hidden absolute top-0 left-0"
+            ref={coinRef3}
+          ></Image>
           <span className="font-semibold">{result.coin}</span>
         </p>
       </div>
       {/* Coin Ui  End */}
 
-      <div className="mainDiv flex justify-center items-center w-full h-full">
+      <div className="mainDiv flex justify-center items-center w-full mt-10">
         <div className="question bg-white p-4 rounded-md w-4/5 h-3/4">
           {/* Counter Start */}
           <div className="text-center flex justify-between border-b-2 border-black">
@@ -181,7 +213,7 @@ const Page = ({ params }: { params: { quizid: number } }) => {
 
           {/* Question Ui Start */}
           <div className="question">
-            <h3 className="font-bold text-2xl">
+            <h3 className="font-semibold my-4 text-xl">
               Q{index + 1}. {currentQuestion.Question}
             </h3>
             <p

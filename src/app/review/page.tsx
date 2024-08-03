@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import coinImage from "../../../public/coin.png";
 import CorrectImage from "../../../public/Correct2.png";
 import IncorrectImage from "../../../public/Incorrect.png";
+import ClockImage from "../../../public/Timer.png";
 import { ParsedData } from "@/types/types";
 import Image from "next/image";
 const Page = () => {
@@ -62,6 +63,26 @@ const Page = () => {
                           className="h-5 w-5"
                         />
                       )}
+                    </button>
+                    <button
+                      aria-label="score"
+                      type="button"
+                      className="text-xl text-yellow400 font-[Montserrat] bg-grey800 border-2 border-white h-[43px] p-2 rounded-lg flex items-center gap-1"
+                    >
+                      <img
+                        alt=""
+                        loading="lazy"
+                        width="20"
+                        height="20"
+                        decoding="async"
+                        data-nimg="1"
+                        className="w-[20px] font-[Montserrat]"
+                        src={ClockImage.src}
+                        style={{ color: "transparent" }}
+                      />
+                      <p className="font-[Montserrat] text-[16px]">
+                        {ele.timePerQue}
+                      </p>
                     </button>
                     <button
                       aria-label="score"
